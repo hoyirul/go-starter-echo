@@ -58,12 +58,12 @@ func UpdateUser(c echo.Context) error {
 			"message": "User not found",
 		})
 	}
-	
+
 	updatedUser := new(models.User)
 	if err := c.Bind(updatedUser); err != nil {
 		return c.String(http.StatusBadRequest, "Invalid input")
 	}
-	
+
 	user.Name = updatedUser.Name
 	user.Age = updatedUser.Age
 
